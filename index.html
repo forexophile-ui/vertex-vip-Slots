@@ -649,4 +649,281 @@
       <label class="field-label">Trading Experience Level <span class="star">★</span></label>
       <div class="radio-group" id="experience">
         <label class="radio-option"><input type="radio" name="experience" value="Beginner"><div class="radio-dot"></div><span class="radio-label">🟢 Beginner — Less than 1 year</span></label>
-        <label class="radio-option"><input type="radio" name="experience" value="Intermediate"><div class="radio-dot"></div><span class="radio-label">🟡 Intermedia
+        <label class="radio-option"><input type="radio" name="experience" value="Intermediate"><div class="radio-dot"></div><span class="radio-label">🟡 Intermediate — 1 to 3 years</span></label>
+        <label class="radio-option"><input type="radio" name="experience" value="Advanced"><div class="radio-dot"></div><span class="radio-label">🔴 Advanced — 3+ years</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: PAYMENT METHOD -->
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div class="section-title">Payment Method</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="form-card">
+    <div class="field">
+      <label class="field-label">Preferred Payment Method <span class="star">★</span></label>
+      <div class="radio-group" id="paymentMethod">
+        <label class="radio-option"><input type="radio" name="paymentMethod" value="USDT TRC20"><div class="radio-dot"></div><span class="radio-label">USDT TRC20</span></label>
+        <label class="radio-option"><input type="radio" name="paymentMethod" value="USDT BEP20"><div class="radio-dot"></div><span class="radio-label">USDT BEP20</span></label>
+        <label class="radio-option"><input type="radio" name="paymentMethod" value="Binance Pay"><div class="radio-dot"></div><span class="radio-label">Binance Pay</span></label>
+        <label class="radio-option"><input type="radio" name="paymentMethod" value="Bitcoin (BTC)"><div class="radio-dot"></div><span class="radio-label">Bitcoin (BTC)</span></label>
+        <label class="radio-option"><input type="radio" name="paymentMethod" value="Bank Transfer (IBAN)"><div class="radio-dot"></div><span class="radio-label">Bank Transfer (IBAN)</span></label>
+        <label class="radio-option"><input type="radio" name="paymentMethod" value="Other"><div class="radio-dot"></div><span class="radio-label">Other</span></label>
+      </div>
+    </div>
+
+    <div class="field" id="otherPaymentField" style="display:none;">
+      <label class="field-label">If "Other" — Please Specify</label>
+      <input type="text" id="otherPayment" placeholder="Specify your payment method" />
+    </div>
+  </div>
+
+  <!-- SECTION 4: TRADING GOALS -->
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div class="section-title">Your Trading Goals</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="form-card">
+    <div class="field">
+      <label class="field-label">Primary Goal for Joining VIP <span class="star">★</span></label>
+      <div class="radio-group" id="primaryGoal">
+        <label class="radio-option"><input type="radio" name="primaryGoal" value="Generate consistent daily profits"><div class="radio-dot"></div><span class="radio-label">💰 Generate consistent daily profits</span></label>
+        <label class="radio-option"><input type="radio" name="primaryGoal" value="Protect my capital with expert guidance"><div class="radio-dot"></div><span class="radio-label">🛡️ Protect my capital with expert guidance</span></label>
+        <label class="radio-option"><input type="radio" name="primaryGoal" value="Grow a small account professionally"><div class="radio-dot"></div><span class="radio-label">📈 Grow a small account professionally</span></label>
+        <label class="radio-option"><input type="radio" name="primaryGoal" value="Learn professional Gold analysis"><div class="radio-dot"></div><span class="radio-label">🎓 Learn professional Gold analysis</span></label>
+        <label class="radio-option"><input type="radio" name="primaryGoal" value="All of the above"><div class="radio-dot"></div><span class="radio-label">⭐ All of the above</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">How Did You Discover Us? <span class="star">★</span></label>
+      <div class="radio-group" id="discoverUs">
+        <label class="radio-option"><input type="radio" name="discoverUs" value="Telegram"><div class="radio-dot"></div><span class="radio-label">Telegram</span></label>
+        <label class="radio-option"><input type="radio" name="discoverUs" value="WhatsApp"><div class="radio-dot"></div><span class="radio-label">WhatsApp</span></label>
+        <label class="radio-option"><input type="radio" name="discoverUs" value="Instagram"><div class="radio-dot"></div><span class="radio-label">Instagram</span></label>
+        <label class="radio-option"><input type="radio" name="discoverUs" value="Referred by an existing VIP member"><div class="radio-dot"></div><span class="radio-label">Referred by an existing VIP member</span></label>
+        <label class="radio-option"><input type="radio" name="discoverUs" value="Other"><div class="radio-dot"></div><span class="radio-label">Other</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Any Questions Before Joining? <span style="color:var(--text-dim);font-weight:400;">(Optional)</span></label>
+      <textarea id="questions" placeholder="Ask us anything. We will respond personally within 24 hours."></textarea>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PAYMENT INSTRUCTIONS -->
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div class="section-title">Payment Instructions</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="form-card">
+    <div class="pay-info-card">
+      <h3>💳 How to Complete Your Payment</h3>
+      <p>Do <strong>NOT</strong> send payment yet. Contact us first on any official channel below to receive your wallet address and payment instructions.</p>
+    </div>
+
+    <div class="contact-cards">
+      <a href="https://t.me/Jackson_Standard" target="_blank" class="contact-card contact-card-link">
+        <div class="contact-card-icon">✈️</div>
+        <div>
+          <div class="contact-card-meta">Telegram</div>
+          <div class="contact-card-val">@Jackson_Standard</div>
+        </div>
+      </a>
+      <a href="https://wa.me/12017801321" target="_blank" class="contact-card contact-card-link">
+        <div class="contact-card-icon">📱</div>
+        <div>
+          <div class="contact-card-meta">WhatsApp — US</div>
+          <div class="contact-card-val">+1 201 780 1321</div>
+        </div>
+      </a>
+      <a href="https://wa.me/447348496795" target="_blank" class="contact-card contact-card-link">
+        <div class="contact-card-icon">📱</div>
+        <div>
+          <div class="contact-card-meta">WhatsApp — UK</div>
+          <div class="contact-card-val">+44 7348 496795</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="steps-divider">STEPS TO ACTIVATE</div>
+
+    <div class="steps-list">
+      <div class="step-item"><div class="step-num">1</div><div class="step-text">Submit this form completely</div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-text">Contact us on <strong>Telegram or WhatsApp</strong></div></div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-text">Receive <strong>wallet address</strong> from us privately</div></div>
+      <div class="step-item"><div class="step-num">4</div><div class="step-text">Complete your payment</div></div>
+      <div class="step-item"><div class="step-num">5</div><div class="step-text">Send <strong>payment screenshot</strong> to us</div></div>
+      <div class="step-item"><div class="step-num">6</div><div class="step-text">Get added to <strong>VIP instantly</strong> ✅</div></div>
+    </div>
+
+    <div class="security-notice">
+      ⚠️ <strong>SECURITY NOTICE:</strong> We will NEVER contact you first asking for payment. Always initiate contact yourself through the official channels above. Beware of anyone impersonating our service. We are NOT responsible for payments sent to unofficial contacts.
+    </div>
+  </div>
+
+  <!-- SECTION 6: PAYMENT PROOF -->
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div class="section-title">Payment Proof</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="form-card">
+    <div class="field">
+      <label class="field-label">Attach Payment Screenshot <span style="color:var(--text-dim);font-weight:400;">(Upload after payment)</span></label>
+      <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+        <div class="icon">🔗</div>
+        <p>Click to upload or drag &amp; drop</p>
+        <small>JPG, PNG, PDF — Max 10MB</small>
+        <div id="fileName"></div>
+      </div>
+      <input type="file" id="fileInput" accept="image/*,.pdf" onchange="showFileName(this)">
+    </div>
+  </div>
+
+  <!-- SECTION 7: TERMS & AGREEMENT -->
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div class="section-title">Terms &amp; Agreement</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="form-card">
+    <div class="field">
+      <label class="field-label">Please confirm all of the following: <span class="star">★</span></label>
+      <div class="check-group" id="agreements">
+        <label class="check-option"><input type="checkbox" name="agree" value="risk"><div class="check-box">✓</div><span class="check-label">I understand that trading involves financial risk and past results do not guarantee future performance</span></label>
+        <label class="check-option"><input type="checkbox" name="agree" value="noshare"><div class="check-box">✓</div><span class="check-label">I will NOT share VIP signals, analysis or content outside the community</span></label>
+        <label class="check-option"><input type="checkbox" name="agree" value="nonrefund"><div class="check-box">✓</div><span class="check-label">I understand that subscription fees are non-refundable once VIP access is activated</span></label>
+        <label class="check-option"><input type="checkbox" name="agree" value="active"><div class="check-box">✓</div><span class="check-label">I will remain active to timely catch VIP signals and follow risk management rules</span></label>
+        <label class="check-option"><input type="checkbox" name="agree" value="accurate"><div class="check-box">✓</div><span class="check-label">I confirm all information provided in this form is accurate and truthful</span></label>
+      </div>
+    </div>
+  </div>
+
+  <button class="submit-btn" onclick="submitForm()">🏆 SUBMIT VIP APPLICATION</button>
+
+</div><!-- /container -->
+
+<!-- SUCCESS OVERLAY -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-box">
+    <div class="success-icon">🏆</div>
+    <h2>Application Submitted!</h2>
+    <p>Thank you for joining Vertex XAUUSD VIP.<br><br>Our team will contact you within <strong style="color:var(--gold)">24 hours</strong> to complete your activation.<br><br>Please reach out to us on Telegram or WhatsApp in the meantime.</p>
+    <br>
+    <button class="submit-btn" style="margin-top:0;font-size:13px;padding:12px;" onclick="document.getElementById('successOverlay').classList.remove('show')">Close</button>
+  </div>
+</div>
+
+<script>
+  // Radio button selection highlight
+  document.querySelectorAll('.radio-group').forEach(group => {
+    group.querySelectorAll('.radio-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        group.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        opt.querySelector('input').checked = true;
+      });
+    });
+  });
+
+  // Checkbox selection highlight
+  document.querySelectorAll('.check-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const cb = opt.querySelector('input[type="checkbox"]');
+      cb.checked = !cb.checked;
+      opt.classList.toggle('selected', cb.checked);
+    });
+  });
+
+  // Show "Other" payment field
+  document.querySelectorAll('input[name="paymentMethod"]').forEach(r => {
+    r.addEventListener('change', () => {
+      document.getElementById('otherPaymentField').style.display =
+        r.value === 'Other' && r.checked ? 'flex' : 'none';
+    });
+  });
+
+  // File name display
+  function showFileName(input) {
+    const el = document.getElementById('fileName');
+    el.textContent = input.files[0] ? '✓ ' + input.files[0].name : '';
+  }
+
+  // Submit
+  function submitForm() {
+    const required = {
+      'Full Name': document.getElementById('fullName').value.trim(),
+      'Telegram Username': document.getElementById('telegram').value.trim(),
+      'WhatsApp Number': document.getElementById('whatsapp').value.trim(),
+      'Country': document.getElementById('country').value,
+      'Preferred Contact Platform': document.querySelector('input[name="contactPlatform"]:checked'),
+      'VIP Plan': document.querySelector('input[name="vipPlan"]:checked'),
+      'Trading Platform': document.querySelector('input[name="tradingPlatform"]:checked'),
+      'Experience Level': document.querySelector('input[name="experience"]:checked'),
+      'Payment Method': document.querySelector('input[name="paymentMethod"]:checked'),
+      'Primary Goal': document.querySelector('input[name="primaryGoal"]:checked'),
+      'How You Discovered Us': document.querySelector('input[name="discoverUs"]:checked'),
+    };
+
+    for (const [key, val] of Object.entries(required)) {
+      if (!val) {
+        alert('Please fill in: ' + key);
+        return;
+      }
+    }
+
+    const allChecks = document.querySelectorAll('input[name="agree"]');
+    const allChecked = [...allChecks].every(c => c.checked);
+    if (!allChecked) {
+      alert('Please confirm all Terms & Agreement items.');
+      return;
+    }
+
+    const data = {
+      fullName: document.getElementById('fullName').value.trim(),
+      telegram: document.getElementById('telegram').value.trim(),
+      whatsapp: document.getElementById('whatsapp').value.trim(),
+      country: document.getElementById('country').value,
+      contactPlatform: document.querySelector('input[name="contactPlatform"]:checked').value,
+      vipPlan: document.querySelector('input[name="vipPlan"]:checked').value,
+      tradingPlatform: document.querySelector('input[name="tradingPlatform"]:checked').value,
+      experience: document.querySelector('input[name="experience"]:checked').value,
+      paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
+      primaryGoal: document.querySelector('input[name="primaryGoal"]:checked').value,
+      discoverUs: document.querySelector('input[name="discoverUs"]:checked').value,
+      questions: document.getElementById('questions').value.trim()
+    };
+
+    const btn = document.querySelector('.submit-btn');
+    btn.textContent = '⏳ Submitting...';
+    btn.disabled = true;
+
+    fetch('https://script.google.com/macros/s/AKfycbxvARRye-mr08_ek06BEtDqTHCBglWRpV6Ilfagr4B12SkICmyP29Va5oxcrgaun3ubVA/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(() => {
+      btn.textContent = '🏆 SUBMIT VIP APPLICATION';
+      btn.disabled = false;
+      document.getElementById('successOverlay').classList.add('show');
+    }).catch(() => {
+      btn.textContent = '🏆 SUBMIT VIP APPLICATION';
+      btn.disabled = false;
+      document.getElementById('successOverlay').classList.add('show');
+    });
+  }
+</script>
+</body>
+</html>
