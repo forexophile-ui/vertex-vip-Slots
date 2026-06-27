@@ -1,21 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vertex XAUUSD Trading — VIP Subscription Form</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
-function doPost(e) {
-  var sheet = SpreadsheetApp.openById('1A6c8yznUzTqndElRjQEDSHYG1t-NMpHBDLI2TrSNOXM').getActiveSheet();
-  var data = JSON.parse(e.postData.contents);
-  sheet.appendRow([
-    new Date(),
-    data.fullName,
-    data.telegram,
-    data.whatsapp,
-    data.country,
-    data.contactPlatform,
-    data.vipPlan,
-    data.tradingPlatform,
-    data.experience,
-    data.paymentMethod,
-    data.primaryGoal,
-    data.discoverUs,
-    data.questions
-  ]);
-  return ContentService.createTextOutput('OK');
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E2C06A;
+    --gold-dim: #8A6E32;
+    --bg: #0A0A0A;
+    --card: #111111;
+    --card2: #161616;
+    --border: #2A2A2A;
+    --border-gold: #3A2E10;
+    --text: #E8E8E8;
+    --text-dim: #888888;
+    --text-muted: #555555;
+    --red: #E05252;
+    --green: #4CAF50;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px 32px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0D0D0D 0%, #0A0A0A 100%);
+    border-bottom: 1px solid var(--border-gold);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect fill='%230A0A0A' width='100%25' height='100%25'/%3E%3Crect fill='%23C9A84C' opacity='0.04' width='100%25' height='100%25'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid var(--gold-dim);
+    border-radius: 20px;
+    padding: 5px 18px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 5vw, 34px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .hero h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(16px, 4vw, 24px);
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1.3;
+  }
+
+  /* ── BRAND BAR ── */
+  .brand-bar {
+    background: #0D0D0D;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .brand-logo {
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+  .brand-sub {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+  }
+
+  /* ── STATS ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat {
+    padding: 18px 8px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ── CONTAINER ── */
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 16px 60px;
+  }
+
+  /* ── WELCOME CARD ── */
+  .welcome-card {
+    background: var(--card);
+    border: 1px solid var(--border-gold);
+    border-radius: 14px;
+    padding: 28px 24px;
+    margin: 28px 0 0;
+    text-align: center;
+    font-style: italic;
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .welcome-card .gold { color: var(--gold); font-weight: 600; font-style: normal; }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 36px 0 16px;
+  }
+  .section-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold-dim), transparent);
+  }
+
+  /* ── FORM CARD ── */
+  .form-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* ── FIELD ── */
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .field-label .star { color: var(--gold); }
+  .field-hint {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: -3px;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  select,
+  textarea {
+    background: #0D0D0D;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 15px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--gold-dim);
+  }
+  input::placeholder, textarea::placeholder { color: var(--text-muted); }
+  select { appearance: none; cursor: pointer; }
+  select option { background: #111; }
+  textarea { resize: vertical; min-height: 110px; }
+
+  /* ── RADIO OPTIONS ── */
+  .radio-group { display: flex; flex-direction: column; gap: 8px; }
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #0D0D0D;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 16px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+  }
+  .radio-option:hover { border-color: var(--gold-dim); }
+  .radio-option input[type="radio"] { display: none; }
+  .radio-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    flex-shrink: 0;
+    transition: border-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .radio-dot::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .radio-option input:checked ~ .radio-dot { border-color: var(--gold); }
+  .radio-option input:checked ~ .radio-dot::after { opacity: 1; }
+  .radio-option.selected { border-color: var(--gold-dim); background: rgba(201,168,76,0.05); }
+  .radio-label { font-size: 14px; font-weight: 500; color: #ddd; }
+
+  .best-deal {
+    margin-left: auto;
+    background: var(--gold);
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  /* ── CHECKBOX OPTIONS ── */
+  .check-group { display: flex; flex-direction: column; gap: 8px; }
+  .check-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: #0D0D0D;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 16px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .check-option:hover { border-color: var(--gold-dim); }
+  .check-option input[type="checkbox"] { display: none; }
+  .check-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #555;
+    border-radius: 5px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    transition: border-color 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: transparent;
+  }
+  .check-option input:checked ~ .check-box {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+  }
+  .check-option.selected { border-color: var(--gold-dim); background: rgba(201,168,76,0.04); }
+  .check-label { font-size: 14px; color: #ccc; line-height: 1.5; }
+
+  /* ── PAYMENT INFO CARD ── */
+  .pay-info-card {
+    background: #0D0B05;
+    border: 1px solid var(--gold-dim);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+  .pay-info-card h3 {
+    color: var(--gold);
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .pay-info-card p { color: #aaa; font-size: 14px; line-height: 1.6; }
+  .pay-info-card p strong { color: var(--red); }
+
+  .contact-cards { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .contact-card {
+    background: #0D0D0D;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .contact-card-link {
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-card-link:hover {
+    border-color: var(--gold-dim);
+    background: rgba(201,168,76,0.07);
+  }
+  .contact-card-link:hover .contact-card-val {
+    text-decoration: underline;
+  }
+  .contact-card-icon { font-size: 22px; flex-shrink: 0; }
+  .contact-card-meta { font-size: 10px; letter-spacing: 2px; color: var(--text-dim); text-transform: uppercase; }
+  .contact-card-val { font-size: 15px; font-weight: 600; color: var(--gold); }
+
+  .steps-divider {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    margin: 16px 0 12px;
+    position: relative;
+  }
+  .steps-divider::before, .steps-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: var(--border);
+  }
+  .steps-divider::before { left: 0; }
+  .steps-divider::after { right: 0; }
+
+  .steps-list { display: flex; flex-direction: column; gap: 8px; }
+  .step-item {
+    background: #0D0D0D;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .step-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-text { font-size: 14px; color: #bbb; line-height: 1.5; }
+  .step-text strong { color: #fff; }
+
+  .security-notice {
+    background: rgba(160,30,30,0.12);
+    border: 1px solid rgba(160,30,30,0.4);
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #cc8080;
+    line-height: 1.6;
+  }
+  .security-notice strong { color: var(--red); }
+
+  /* ── FILE UPLOAD ── */
+  .upload-zone {
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    padding: 32px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    background: #0D0D0D;
+  }
+  .upload-zone:hover { border-color: var(--gold-dim); }
+  .upload-zone .icon { font-size: 32px; margin-bottom: 10px; }
+  .upload-zone p { color: var(--text-dim); font-size: 14px; }
+  .upload-zone small { color: var(--text-muted); font-size: 12px; }
+  #fileInput { display: none; }
+  #fileName { margin-top: 8px; font-size: 12px; color: var(--gold); min-height: 18px; }
+
+  /* ── SUBMIT ── */
+  .submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #C9A84C, #A8863A, #C9A84C);
+    background-size: 200% 100%;
+    border: none;
+    border-radius: 12px;
+    color: #000;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 28px;
+    transition: background-position 0.3s, transform 0.1s;
+  }
+  .submit-btn:hover { background-position: right center; }
+  .submit-btn:active { transform: scale(0.99); }
+
+  /* ── SUCCESS ── */
+  .success-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .success-overlay.show { display: flex; }
+  .success-box {
+    background: var(--card);
+    border: 1px solid var(--gold-dim);
+    border-radius: 20px;
+    padding: 40px 28px;
+    text-align: center;
+    max-width: 380px;
+    width: 100%;
+  }
+  .success-icon { font-size: 56px; margin-bottom: 16px; }
+  .success-box h2 { font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 10px; }
+  .success-box p { color: #aaa; font-size: 14px; line-height: 1.7; }
+
+  /* ── SELECT WRAPPER ── */
+  .select-wrap { position: relative; }
+  .select-wrap::after {
+    content: '▾';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+    pointer-events: none;
+  }
+  .select-wrap select { padding-right: 36px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat { border-bottom: 1px solid var(--border); }
+    .stat:nth-child(2) { border-right: none; }
+    .stat:nth-child(3) { border-bottom: none; }
+    .stat:nth-child(4) { border-right: none; border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">✦ XAUUSD · GOLD TRADING ✦</div>
+  <h1>VIP Gold Trading Community</h1>
+  <h2>Official Subscription Form</h2>
+</div>
+
+<!-- BRAND BAR -->
+<div class="brand-bar">
+  <div class="brand-logo">🐻</div>
+  <div>
+    <div class="brand-name">VERTEX</div>
+    <div class="brand-sub">XAUUSD TRADING · VIP</div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">92%</div><div class="stat-label">Accuracy</div></div>
+  <div class="stat"><div class="stat-num">1:5</div><div class="stat-label">Reward:Risk</div></div>
+  <div class="stat"><div class="stat-num">280+</div><div class="stat-label">Pips Delivered</div></div>
+  <div class="stat"><div class="stat-num">3–4</div><div class="stat-label">Setups Daily</div></div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- WELCOME -->
+  <div class="welcome-card">
+    <p>Welcome to the most precise and professional XAUUSD trading community. This is your first step towards <span class="gold">consistent profits</span>, <span class="gold">capital protection</span> and <span class="gold">elite-level Gold analysis.</span></p>
+    <br>
+    <p>Please fill out this form carefully. Once submitted, our team will contact you within <span class="gold">24 hours</span> to complete your VIP activation.</p>
+    <br>
+    <p>Slots are strictly limited — thank you for choosing excellence. 🏆</p>
+  </div>
+
+  <!-- SECTION 1: PERSONAL DETAILS -->
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div class="section-title">Personal Details</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="form-card">
+    <div class="field">
+      <label class="field-label">Full Name <span class="star">★</span></label>
+      <input type="text" id="fullName" placeholder="Enter your full name" />
+    </div>
+
+    <div class="field">
+      <label class="field-label">Telegram Username <span class="star">★</span></label>
+      <div class="field-hint">Required for adding you to the VIP group</div>
+      <input type="text" id="telegram" placeholder="e.g. @yourname" />
+    </div>
+
+    <div class="field">
+      <label class="field-label">WhatsApp Number <span class="star">★</span></label>
+      <div class="field-hint">Include country code</div>
+      <input type="tel" id="whatsapp" placeholder="e.g. +92xxxxxxxxxx" />
+    </div>
+
+    <div class="field">
+      <label class="field-label">Country <span class="star">★</span></label>
+      <div class="select-wrap">
+        <select id="country">
+          <option value="">Select your country</option>
+          <option>Pakistan</option><option>United Kingdom</option><option>United States</option>
+          <option>United Arab Emirates</option><option>Saudi Arabia</option><option>India</option>
+          <option>Bangladesh</option><option>Nigeria</option><option>Kenya</option>
+          <option>South Africa</option><option>Malaysia</option><option>Indonesia</option>
+          <option>Turkey</option><option>Egypt</option><option>Canada</option>
+          <option>Australia</option><option>Germany</option><option>France</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Preferred Contact Platform <span class="star">★</span></label>
+      <div class="radio-group" id="contactPlatform">
+        <label class="radio-option"><input type="radio" name="contactPlatform" value="WhatsApp"><div class="radio-dot"></div><span class="radio-label">📱 WhatsApp</span></label>
+        <label class="radio-option"><input type="radio" name="contactPlatform" value="Telegram"><div class="radio-dot"></div><span class="radio-label">✈️ Telegram</span></label>
+        <label class="radio-option"><input type="radio" name="contactPlatform" value="Both"><div class="radio-dot"></div><span class="radio-label">⚡ Both</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: SUBSCRIPTION PLAN -->
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div class="section-title">Subscription Plan</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="form-card">
+    <div class="field">
+      <label class="field-label">Choose Your VIP Plan <span class="star">★</span></label>
+      <div class="radio-group" id="vipPlan">
+        <label class="radio-option"><input type="radio" name="vipPlan" value="Monthly — $120"><div class="radio-dot"></div><span class="radio-label">📅 Monthly — $120</span></label>
+        <label class="radio-option"><input type="radio" name="vipPlan" value="Yearly — $150"><div class="radio-dot"></div><span class="radio-label">📅 Yearly — $150</span></label>
+        <label class="radio-option"><input type="radio" name="vipPlan" value="Lifetime — $200"><div class="radio-dot"></div><span class="radio-label">♾️ Lifetime — $200 <span class="best-deal">BEST DEAL</span></span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Trading Platform <span class="star">★</span></label>
+      <div class="radio-group" id="tradingPlatform">
+        <label class="radio-option"><input type="radio" name="tradingPlatform" value="MT4"><div class="radio-dot"></div><span class="radio-label">MT4</span></label>
+        <label class="radio-option"><input type="radio" name="tradingPlatform" value="MT5"><div class="radio-dot"></div><span class="radio-label">MT5</span></label>
+        <label class="radio-option"><input type="radio" name="tradingPlatform" value="cTrader"><div class="radio-dot"></div><span class="radio-label">cTrader</span></label>
+        <label class="radio-option"><input type="radio" name="tradingPlatform" value="Other"><div class="radio-dot"></div><span class="radio-label">Other</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Trading Experience Level <span class="star">★</span></label>
+      <div class="radio-group" id="experience">
+        <label class="radio-option"><input type="radio" name="experience" value="Beginner"><div class="radio-dot"></div><span class="radio-label">🟢 Beginner — Less than 1 year</span></label>
+        <label class="radio-option"><input type="radio" name="experience" value="Intermediate"><div class="radio-dot"></div><span class="radio-label">🟡 Intermedia
